@@ -1,0 +1,12 @@
+# paired t - test
+pair_t <- read_excel("F:/CDAC/Advance_Analytics/Institute_Notes/Day-7_T-tests/T-tests/pair_t.xlsx")
+attach(pair_t)
+View(pair_t)
+library(nortest)
+shapiro.test(Diff)
+shapiro.test(Aft)
+shapiro.test(Bef)
+library(moments)
+skewness(Diff)
+kurtosis(Diff)
+t.test(Bef,Aft,mu=0,paired = T)
