@@ -1,0 +1,17 @@
+#feature selection
+baru <- read_excel("C:/Users/dbda/Downloads/baru.xlsx")
+attach(baru)
+str(baru)
+baru$class<-as.factor(baru$class)
+str(baru)
+
+library(Boruta)
+library(mlbench)
+library(caret)
+library(randomForest)
+set.seed(111)
+baruta<-Boruta(class~.,data = baru,doTrace=2)
+baruta<-Boruta(class~.,data = baru,doTrace=2,maxRuns=500)
+print(baruta)
+plot(baruta)
+plot(baruta,las=2,cex.axis=0.7)
